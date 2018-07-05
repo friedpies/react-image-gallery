@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import Container from './Container';
+import Header from './Header';
+import PhotoContainer from './PhotoContainer';
 import axios from 'axios';
 import apiKey from './config';
 
@@ -35,7 +36,10 @@ componentDidMount() {
   render() {
     console.log(this.state.photos);
     return (
-      <Container />
+      <div className="container">
+        <Header />
+        <PhotoContainer data={this.state.photos} />
+      </div>
     );
   }
 }
