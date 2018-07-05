@@ -3,9 +3,9 @@ import Header from './Header';
 import PhotoContainer from './PhotoContainer';
 
 const Container = props =>
-<div className="container">
-  <Header />
-  <PhotoContainer />
-</div>;
+  <div className="container">
+    <Header />
+    <PhotoContainer />
+  </div>;
 
 export default Container;
