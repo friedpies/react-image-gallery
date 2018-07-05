@@ -19,7 +19,7 @@ componentDidMount() {
     method=flickr.photos.search&
     api_key=${apiKey}&
     tags=cats&
-    per_page=10&
+    per_page=9&
     format=json&
     nojsoncallback=1`)
     .then(response => {
