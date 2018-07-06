@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
 import './App.css';
-import Header from './Header';
 import PhotoContainer from './PhotoContainer';
+import SearchForm from './SearchForm';
+import Navigation from './Navigation';
 import axios from 'axios';
 import apiKey from './config';
+import {
+  BrowserRouter,
+  Route
+} from 'react-router-dom';
 
 class App extends Component {
   constructor(){
     super();
+    this.performSearch = this.performSearch.bind(this);
     this.state = {
       photos: [],
       loading: true
@@ -15,10 +21,14 @@ class App extends Component {
   }
 
 componentDidMount() {
+  this.performSearch();
+}
+
+performSearch(query='cats') {
   axios.get(`https://api.flickr.com/services/rest/?
     method=flickr.photos.search&
     api_key=${apiKey}&
-    tags=cats&
+    tags=${query}&
     per_page=9&
     format=json&
     nojsoncallback=1`)
@@ -36,10 +46,22 @@ componentDidMount() {
   render() {
     console.log(this.state.photos);
     return (
+    <BrowserRouter>
       <div className="container">
-        <Header />
-        <PhotoContainer data={this.state.photos} />
+        <div className="header">
+          <SearchForm onSearch={this.performSearch}/>
+          <Navigation />
+        </div>
+        <div className="main-content">
+          {
+            (this.state.loading)
+            ? <p>Loading...</p>
+            : <PhotoContainer data={this.state.photos} />
+          }
+
+        </div>
       </div>
+    </BrowserRouter>
     );
   }
 }

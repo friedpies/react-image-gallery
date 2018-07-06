@@ -11,7 +11,7 @@ return(
 );
 }
 
-Photo.PropTypes = {
+Photo.propTypes = {
   farmId: PropTypes.number.isRequired,
   serverId: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
