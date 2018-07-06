@@ -2,7 +2,7 @@
 
 ### Project set up correctly using create-react-app
 
-- [ ] running `npm start` successfully launches the app.###
+- [x] running `npm start` successfully launches the app.###
 
 ### UI Components
 
@@ -15,7 +15,7 @@ PhotoContainer
 Etc.
 
 #### Update successfully
-- [ ] CSS was updated to style the app in a way that resembles the mockup.
+- [x] CSS was updated to style the app in a way that resembles the mockup.
 
 ### Routing
 
@@ -31,7 +31,7 @@ Etc.
 ### Displaying data
 
 - [ ] No console errors or warnings.
-- [ ] Key props passed to images.
+- [x] Key props passed to images.
 
 ### Search Field
- - [ ] Submitting search data returns & displays results.
+ - [x] Submitting search data returns & displays results.

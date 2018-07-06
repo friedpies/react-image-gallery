@@ -6,8 +6,7 @@ import Navigation from './Navigation';
 import axios from 'axios';
 import apiKey from './config';
 import {
-  BrowserRouter,
-  Route
+  BrowserRouter
 } from 'react-router-dom';
 
 class App extends Component {
