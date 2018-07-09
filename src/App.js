@@ -6,7 +6,8 @@ import Navigation from './Navigation';
 import axios from 'axios';
 import apiKey from './config';
 import {
-  BrowserRouter
+  BrowserRouter,
+  Route
 } from 'react-router-dom';
 
 class App extends Component {
@@ -47,6 +48,7 @@ performSearch(query='cats') {
     return (
     <BrowserRouter>
       <div className="container">
+
         <div className="header">
           <SearchForm onSearch={this.performSearch}/>
           <Navigation />
@@ -55,8 +57,15 @@ performSearch(query='cats') {
           {
             (this.state.loading)
             ? <p>Loading...</p>
-            : <PhotoContainer data={this.state.photos} />
+            :
+            <Route path="/search/:query"
+              render={ ({match}) => {
+              this.performSearch(match.params.query);
+              return <PhotoContainer data={this.state.photos} />;
+              }}
+            />
           }
+
 
         </div>
       </div>
