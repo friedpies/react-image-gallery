@@ -7,7 +7,8 @@ import axios from 'axios';
 import apiKey from './config';
 import {
   BrowserRouter,
-  Route
+  Route,
+  Switch
 } from 'react-router-dom';
 
 class App extends Component {
@@ -29,7 +30,7 @@ performSearch(query='cats') {
     method=flickr.photos.search&
     api_key=${apiKey}&
     tags=${query}&
-    per_page=9&
+    per_page=25&
     format=json&
     nojsoncallback=1`)
     .then(response => {
@@ -58,14 +59,21 @@ performSearch(query='cats') {
             (this.state.loading)
             ? <p>Loading...</p>
             :
-            <Route path="/search/:query"
-              render={ ({match}) => {
-              this.performSearch(match.params.query);
-              return <PhotoContainer data={this.state.photos} />;
-              }}
-            />
+            <Switch>
+              <Route path="/search/:query"
+                render={ ({match}) => {
+                this.performSearch(match.params.query);
+                return <PhotoContainer data={this.state.photos} />;
+                }
+              } />
+            <Route exact path="/"
+              render={ () => {
+                this.performSearch();
+                return <PhotoContainer data={this.state.photos} />;
+              }
+            } />
+          </Switch>
           }
-
 
         </div>
       </div>
