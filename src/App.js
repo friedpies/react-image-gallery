@@ -17,6 +17,7 @@ class App extends Component {
     this.performSearch = this.performSearch.bind(this);
     this.state = {
       photos: [],
+      searchQuery: "",
       loading: true
     };
   }
@@ -36,6 +37,7 @@ performSearch(query='cats') {
     .then(response => {
       this.setState({
         photos: response.data.photos.photo,
+        searchQuery: query,
         loading: false
       })
     })
@@ -45,7 +47,6 @@ performSearch(query='cats') {
 }
 
   render() {
-    console.log(this.state.photos);
     return (
     <BrowserRouter>
       <div className="container">
@@ -63,13 +64,13 @@ performSearch(query='cats') {
               <Route path="/search/:query"
                 render={ ({match}) => {
                 this.performSearch(match.params.query);
-                return <PhotoContainer data={this.state.photos} />;
+                return <PhotoContainer data={this.state} />;
                 }
               } />
             <Route exact path="/"
               render={ () => {
                 this.performSearch();
-                return <PhotoContainer data={this.state.photos} />;
+                return <PhotoContainer data={this.state} />;
               }
             } />
           </Switch>

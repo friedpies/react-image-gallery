@@ -6,7 +6,7 @@
 
 ### UI Components
 
-- [ ] App is broken up into components like:
+- [x] App is broken up into components like:
 App
 Container
 Navigation
@@ -19,18 +19,18 @@ Etc.
 
 ### Routing
 
-- [ ] React Router properly implemented.
-- [ ] Routes correctly match URLs.
-- [ ] Clicking a nav link navigates user to new route and loads new data.
+- [x] React Router properly implemented.
+- [x] Routes correctly match URLs.
+- [x] Clicking a nav link navigates user to new route and loads new data.
 
 ### Data Fetching
 
-- [ ] Student uses Flickr API correctly: API Keys and proper Photo source URLs.
-- [ ] Data fetched from a "container" component that passes data down to presentation component via props.
+- [x] Student uses Flickr API correctly: API Keys and proper Photo source URLs.
+- [x] Data fetched from a "container" component that passes data down to presentation component via props.
 
 ### Displaying data
 
-- [ ] No console errors or warnings.
+- [x] No console errors or warnings.
 - [x] Key props passed to images.
 
 ### Search Field

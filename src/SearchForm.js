@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom'
 
-export default class SearchForm extends Component {
-
-  state = {
-      searchText: ''
+class SearchForm extends Component {
+  constructor(){
+    super();
+    this.state = {searchText: ''}
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   onSearchChange = e => {
-    // this.setState({ searchText: e.target.value });
+     this.setState({ searchText: e.target.value });
   }
 
   handleSubmit = e => {
     e.preventDefault();
     let searchQuery = this.query.value;
-    let path = `search/${searchQuery}`;
+    let path = `/search/${searchQuery}`;
     this.props.history.push(path);
     // this.props.onSearch(this.state.searchText);
 
@@ -38,3 +40,5 @@ render() {
     );
   }
 }
+
+export default withRouter(SearchForm)
